@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Main}/>
-        <Router path="/confirmation" component={Confirmation} />
+        <Route path="/confirmation" component={()=>(<Confirmation type="student"/>)} />
       </Switch>
 
     </Router>

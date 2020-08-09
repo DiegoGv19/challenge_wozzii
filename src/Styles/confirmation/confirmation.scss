@@ -1,0 +1,16 @@
+.informationContainer{
+    height: calc(100% - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.student{
+    color: var(--main-color);
+}
+
+.youtuber{
+    color: var(--secondary-color);
+}
+
