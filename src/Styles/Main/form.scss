@@ -1,6 +1,4 @@
-.formMain{
-    padding: 0px 31px 24px 24px;
-}
+
 
 .formField{
     display: flex;
@@ -8,6 +6,11 @@
     margin-bottom: 16px;
 }
 
+.formLabel,.formInput{
+    position: relative;
+    left: 0;
+    
+}
 .formLabel{
     margin-bottom: 8px;
     color: var(--font-color);
@@ -15,11 +18,13 @@
 
 .formInput{
     height: 30px;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     padding: 8px 0px 7px 12px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     outline: 0 none;
+    
     &:focus{
         border: 1px solid var(--main-color);
             
@@ -31,7 +36,11 @@
 .groupRadio{
     position: relative;
     &:first-child{
-        margin-right: 20px;
+        margin-bottom: 20px;
+        @media (min-width:375px) {
+            margin-bottom: 0px;
+            margin-right: 20px;
+        }
     }
 }
 
@@ -47,6 +56,8 @@
     margin-bottom: 0;
     color: var(--border-color);
     cursor: pointer;
+
+
 }
 
 
@@ -66,4 +77,10 @@
     background-color: var(--white-color);
     border: 1px solid var(--secondary-color);
     color: var(--secondary-color);
+}
+
+
+.errorInput{
+    color: var(--secondary-color);
+    margin-top: 4px;
 }

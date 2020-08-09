@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+
 import StudentSVG from '../Molecules/StudentSVG'
 import YoutuberSVG from '../Molecules/YoutuberSVG'
 import UserSVG from '../Molecules/UserSVG'
@@ -10,17 +11,69 @@ const Form = () => {
         name: "",
         lastname: "",
         be: ""
+
+
     })
 
-    const ChangeState = (e) =>{
+    const [ error, setError] = useState({
+        name: false,
+        lastname: false,
+        be: false
+
+        
+    })
+
+    const ChangeError = (valueName,valueLastName,valueBe) =>{
+        setError({
+            ...error,
+            "name": valueName,
+            "lastname":valueLastName,
+            "be": valueBe
+        })
+    }
+
+
+    const ValidadeError = e => {
+        if(state[e] === "")
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+
+    const Error = () =>{
+        const name = ValidadeError("name")
+        const lastname = ValidadeError("lastname")
+        const be = ValidadeError("be")
+
+        ChangeError(name,lastname,be)
+    }
+
+    const Validate = e => {
+        e.preventDefault()
+        if(state.name !== "" && state.lastname !== "" && state.be!== "" )
+        {
+            window.location.replace(`/confirmation/${state.be}`)
+        }
+        else{
+            Error()
+        }
+
+
+    }
+
+    const ChangeState = e =>{
         setState({
             ...state,
             [e.target.name] : e.target.value 
         })
-        console.log(state)
+
+
     } 
 
-    
 
     return(  
         <form className="formMain" action="">
@@ -33,6 +86,13 @@ const Form = () => {
                     name="name"
                     onChange={ChangeState.bind(this)}
                     />
+                {
+                    error.name ? 
+                    <p className="errorInput text-normal">You must enter a name</p>
+                    :
+                    <></>
+                }
+                
             </div>
 
             <div className="formField">
@@ -45,6 +105,12 @@ const Form = () => {
                     onChange={ChangeState.bind(this)}
 
                     />
+                {
+                    error.lastname ? 
+                    <p className="errorInput text-normal">You must enter a last name</p>
+                    :
+                    <></>
+                }
             </div>
 
             <div >
@@ -84,10 +150,15 @@ const Form = () => {
                         
                     </div>
                 </div>
-                
+                {
+                    error.be ? 
+                    <p className="errorInput text-normal">You must select one of the two options</p>
+                    :
+                    <></>
+                }
             </div>
 
-            <button className="text-large mainButton">
+            <button type="submit" className="text-large mainButton" to ="/confirmation" onClick={Validate.bind(this)}>
                 <UserSVG />
                 Create Account
             </button>
