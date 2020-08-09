@@ -1,0 +1,25 @@
+.SVGButton{
+    margin-right: 16px;
+}
+
+.SVGContainer{
+    margin-right: 8px;
+}
+
+.SVGStyle{
+    fill: var(--border-color);
+}
+
+
+.checkedStudent:checked ~ .labelRadio{
+    .SVGStyle{
+        fill: var(--main-color);
+    }
+    
+}
+
+.checkedYoutuber:checked ~ .labelRadio{
+    .SVGStyle{
+        fill: var(--secondary-color);
+    }
+}

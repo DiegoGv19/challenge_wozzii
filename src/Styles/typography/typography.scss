@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body{
+    font-family: var(--font-family);
+}
+
+
+
+
+.text-normal, .text-bold,.text-large{
+    font-style: normal;
+
+}
+
+
+.text-bold,.text-large{
+    font-weight: bold;
+    
+}
+
+.text-normal{
+    font-weight: normal;
+    
+}
+
+
+.text-normal, .text-bold{
+    font-size: 12px;
+    line-height: 15px;
+}
+
+
+.text-large{
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.inputs-style{
+
+    font-family: var(--font-family);
+    font-size: 12px;
+    line-height: 15px;
+    font-style: normal;
+    font-weight: normal;
+    &::placeholder{
+        color: var(--border-color);
+        font-family: var(--font-family);
+        font-size: 12px;
+        line-height: 15px;
+        font-style: normal;
+        font-weight: normal;
+    }
+}
