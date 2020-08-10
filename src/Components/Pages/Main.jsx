@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from '../Organisms/Form'
-import Information from '../Organisms/Information'
+import Information from '../Molecules/Information'
 
 
 const Main = () => (

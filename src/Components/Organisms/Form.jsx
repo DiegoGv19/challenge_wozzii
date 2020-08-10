@@ -4,6 +4,9 @@ import StudentSVG from '../Molecules/StudentSVG'
 import YoutuberSVG from '../Molecules/YoutuberSVG'
 import UserSVG from '../Molecules/UserSVG'
 
+import {db} from './../../firebase/config'
+
+import './../../firebase/config'
 
 const Form = () => {
 
@@ -52,11 +55,18 @@ const Form = () => {
         ChangeError(name,lastname,be)
     }
 
+    const  addFirebase = async () =>{
+        console.log(state)
+        await db.collection('users').doc().set(state)
+        window.location.replace(`/confirmation/${state.be}`)
+        
+    }
+
     const Validate = e => {
         e.preventDefault()
         if(state.name !== "" && state.lastname !== "" && state.be!== "" )
-        {
-            window.location.replace(`/confirmation/${state.be}`)
+        {   
+            addFirebase()
         }
         else{
             Error()

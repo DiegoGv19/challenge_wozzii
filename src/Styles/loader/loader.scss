@@ -1,0 +1,42 @@
+.loader{
+    width:100%;
+    height: 20rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &::after, &::before{
+        content: " ";
+        width:6rem;
+        height: 6rem;
+        border-radius: 50%;
+        position: absolute;
+    }
+    &::before{
+        background-image: linear-gradient(0deg, var(--white-color) 50%, var(--main-color) 25%);
+        
+        animation: rotate 1s ease-in-out infinite alternate;
+
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    &::after{
+        background: var(--white-color) content-box;
+        padding: .5rem;
+    }
+
+
+
+
+
+}

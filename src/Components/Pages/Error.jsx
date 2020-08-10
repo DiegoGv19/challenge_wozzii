@@ -1,5 +1,5 @@
 import React from 'react'
-import Information from '../Organisms/Information'
+import Information from '../Molecules/Information'
 
 
 const Error = () => (
