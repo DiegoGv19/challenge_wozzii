@@ -1,23 +1,41 @@
-import React from 'react'
-import ConfirmationSVG from '../Molecules/ConfirmationSVG'
+import React,{useEffect} from 'react'
+import ConfirmationInf from './../Organisms/ConfirmationInf'
+import { useState } from 'react'
 
 
-const Confirmation = ({match}) => (
+import {db} from './../../firebase/config'
 
-    <div className="informationContainer">
-        
-        <ConfirmationSVG /> 
-        {
-            <p className="text-confirmation text-large">Your
-            {
-                match.params.be === "student" ? 
-                <span className="student"> {match.params.be} </span>
-                :
-                <span className="youtuber"> {match.params.be} </span>
-            } 
-            account have been created !</p>
-        }
-    </div>
-)
+import './../../firebase/config'
+
+
+
+const Confirmation = ({match}) => {
+
+    const [result, setResult] = useState(false)
+    const [user] = useState({
+        name: match.params.name,
+        lastname:match.params.lastname,
+        be: match.params.be
+    })
+
+   
+    const saveFirebase= async () =>{
+        await db.collection('users').doc().set(user)
+        setResult(true)
+    }
+
+    useEffect(()=>{
+        saveFirebase()
+    },[])
+ 
+    return(
+        <div className="informationContainer">
+            
+
+            <ConfirmationInf confirmation={result} be={match.params.be}/>
+
+        </div>
+    )
+}
 
 export default Confirmation
