@@ -4,16 +4,16 @@ import withLoader from '../../HOC/withLoader'
 import ConfirmationSVG from '../Molecules/ConfirmationSVG'
 
 
-const ConfirmationInf = ({confirmation,be}) => (
+const ConfirmationInf = ({be}) => (
     <>
         <ConfirmationSVG /> 
     
         <p className="text-confirmation text-large">Your
             {
-                be === "student" ? 
-                <span className="student"> {be} </span>
+                be[0] === "student" ? 
+                <span className="student"> Student </span>
                 :
-                <span className="youtuber"> {be} </span>
+                <span className="youtuber"> Youtuber </span>
             } 
         account have been created !</p>
 
@@ -21,4 +21,4 @@ const ConfirmationInf = ({confirmation,be}) => (
     </>
 )
 
-export default withLoader(ConfirmationInf)
+export default withLoader("be",ConfirmationInf)

@@ -7,6 +7,9 @@ import Confirmation from './Pages/Confirmation'
 import Main from './Pages/Main'
 import Header from './Organisms/Header'
 import Error from './Pages/Error'
+import Users from './Pages/Users'
+
+
 function App() {
   return (
     <Router>
@@ -14,7 +17,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Main}/>
         <Route path="/confirmation/:be&&:name&&:lastname" component={Confirmation} />
-        <Route path="/users" exact component={Main}/>
+        <Route path="/users"  component={Users}/>
         <Route component={Error}/>
       </Switch>
 
