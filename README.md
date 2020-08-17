@@ -9,16 +9,6 @@ El proyecto esta realizado con React, Jsx, Sass y Firestore
 
 ---
 
-## Aclaraciones
-
-- Para dividir los componentes, utilize Atomic React.
-- El HOC realizado permite mostrar al usuario una animación de cargado para indicar que los datos ingresados se están guardando o cargando.
-
-- Todos los componentes dentro de la carpeta "Components", se realizaron con funciones de flecha
-
-- El HOC es una función de flecha, que retorna una clase. Lo realice de esta forma debido a que no encontré dentro de la documentación de React la forma en la que se pueda realizar con funciones de flecha en su totalidad.  
-
----
 
 ## Páginas creadas:
 
